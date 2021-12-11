@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>Tienda de Mobiliarios</title>
+        <link rel="stylesheet" type="text/css" href="CSS/paginasCSS.css">
+
+        <style>
+            #body{
+                margin: 0;
+                background: linear-gradient(rgba(5,7,12, 0.5), rgba(5,7,12, 0.5)),
+                url(imagenes/FondoIndex.png) no-repeat center center fixed;
+                background-size: cover;
+                color: white;
+            }
+
+            #div1 {
+                position:relative;
+                background-color: rgba(15, 12, 34, 0.815);
+                font-size: 25px;
+                width: 1000px;
+                height: 600px;
+                margin: auto;
+                margin-top: 5%;
+                padding-left: 25px;
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+
+        </style>
+        
+        
+    </head>
+
+    <body id="body">
+
+
+        <button id="BTNInicio"><a href="Index.html">Inicio</a></button>
+
+        <header id="cabeceraweb">
+            <h1>Tienda de Mobiliarios</h1>
+        </header>
+
+        <nav id="menu">
+            <ol>
+                <li><a href="html/Formulario.html">Registrate</a></li>
+                <li><a href="html/Productos.html">Productos</a></li>
+                <li><a href="html/Galeria.html">Galeria de fotos</a></li>
+                <li><a href="html/Encuentranos.html">Encuentranos</a></li>
+                <li><a href="html/Pagos1.html">Método de Pagos</a></li>
+                <li><a href="http://localhost:3000/">Comentarios</a></li>
+            </ol>  
+        </nav>
+
+
+        <div id="div1" style="cursor: crosshair">
+            <P> Muchos muebles hacen tendencia, pero es el estilo lo que los hace eterno ¡Un mueble de ensueño! Hogar es donde tu mueble se conecta contigo ¡Vive sensaciones!</P>
+            <figure>
+                <img src="imagenes/ParaIndex.png">
+            </figure>
+        </div>
+
+        <footer id="pie" align="center">
+            <small>
+                <canvas id="canvas" width="175" height="175" class="imgFooter"> </canvas><br>
+    
+                Programación Web I <br>
+                ● Ivan Camara Garcia <br>
+                ● Luis Fernando Calle Ramos<br>
+                ● Alvaro Roel Aquise Canquilla<br>
+                <address>La Paz - Bolivia</address>
+                <i>77213595</i>    
+            </small>
+        </footer>
+        <script src="JavaScript/paginas.js"></script>
+
+    </body>
+</html>

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>Tienda de Mobiliarios</title>
+        <link rel="stylesheet" type="text/css" href="../CSS/paginasCSS.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <style>
+            body{
+                margin: 0;
+                background: linear-gradient(rgba(5,7,12, 0.5), rgba(5,7,12, 0.5)),
+                url(../imagenes/FondoIndex.png) no-repeat center center fixed;
+                background-size: cover;            
+            }
+
+            h1,h2{
+                color: white;
+            }
+            .menuaside{
+                background-color: rgba(15, 12, 34, 0.815);
+                position: fixed;
+                height: 250px;
+                font-size: 20px;
+                color: white;
+                margin-top: 4%;
+                color: rgb(8, 164, 255);
+
+            }
+            .menuaside ul{
+                display: none;
+                margin: 0;
+                padding: 10px 60px;
+                
+            }
+            .menuaside ul li{
+                list-style-type: circle;
+            }
+
+            
+            .menuaside ul li a{
+                color: white;
+                padding: 11px 60px;
+                text-decoration: none;
+                
+            }
+            .menuaside ul li a:hover{
+                background-color: rgb(64, 110, 110);
+            }
+            
+            .imageCursor{
+                cursor: move;
+            }
+
+            li:nth-child(even){
+                color: rgb(0, 217, 255);
+            }
+            
+            li:nth-child(odd){
+                color: rgb(255, 0, 0);
+            }
+
+
+            #divpar{
+                outline-style: double;
+                outline-width: 10px;
+                outline-color: rgba(13, 42, 121, 0.5);
+
+                font-size: 25px;
+                position: relative;
+                width: 755px;
+                bottom: 30px;   
+                border-radius: 5px;
+                padding: 5px;
+                padding-left: 30px;
+                margin-top: 6%;
+                background-color: rgba(15, 12, 34, 0.815);
+                color: whitesmoke;
+            }
+
+            #contenido{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            p{
+                word-spacing: 15px;
+                text-shadow: rgba(61, 52, 52, 0.918) 5px 5px 5px;
+                outline-color: rgb(16, 72, 77);
+                cursor: crosshair;
+            }
+            
+            #abierto {
+                position: fixed;
+                margin: 0;
+                cursor: pointer;
+                color: whitesmoke;
+                padding: 5px 0px 2px 5px;
+            }
+
+            #abierto:hover {
+                background-color: rgb(3, 146, 146);
+            }
+
+            #lista{
+                list-style: none;
+            }
+
+            #lista li{
+                padding-top: 3px;
+            }
+
+            #lista li a{
+                font-size: 20px;
+                display: block;
+                color: whitesmoke;
+                text-decoration: none;
+                padding: 10px 5px;
+            }
+
+            #lista a:hover{
+                background-color: rgb(3, 146, 146);
+            }
+
+        </style>
+    </head>
+
+    <body id="body">
+
+        <button id="BTNInicio"><a href="../Index.html">Inicio</a></button>
+
+        <header id="cabeceraweb" align="center">
+            <h1>Compra al mejor precio</h1>
+        </header>
+
+        <nav id="menu">
+            <ol>
+                <li><a href="Formulario.html">Registrate</a></li>
+                <li><a href="Productos.html">Productos</a></li>
+                <li><a href="Galeria.html">Galeria de fotos</a></li>
+                <li><a href="Encuentranos.html">Encuentranos</a></li>
+                <li><a href="Pagos1.html">Método de Pagos</a></li>
+                <li><a href="http://localhost:3000/">Comentarios</a></li>
+            </ol>  
+        </nav>
+
+    
+        <img src="../imagenes/logoMenu.png" width="50px" id="abierto"></img>
+
+        <aside class="menuaside">
+            <ul class="circle" id="lista">Living
+                <li><a href = "#Sofa">Sofá</a></li>
+                <li><a href = "#MesaVidrio">Mesa</a></li>
+                <li><a href = "#Modular">Estanteria</a></li>
+            </ul>
+            <ul class="circle" id="lista">Dormitorio
+                <li><a href = "#Cama">Cama</a></li>
+                <li><a href = "#Armario">Armario</a></li>
+                <li><a href = "#Espejo">Espejo</a></li>
+            </ul>
+            <ul class="circle" id="lista">Comedor
+                <li><a href="#MesaGris">Mesa gris</a></li>
+                <li><a href="#MesaTinte">Mesa tinte claro</a></li>
+                <li><a href="#SillaIn">silla blanca</a></li>
+                <li><a href="#SillaGris">Silla blanco-gris</a></li> 
+            </ul>        
+        </aside>
+
+
+        <script>
+            $(document).ready(function(){
+                var bandera = 0;
+                var mostrar = {"overflow-y": 'scroll'};
+                var ocultar = {"overflow-y": 'hidden'};
+
+                $("#abierto").click(function(){
+
+                    switch(bandera){
+                        case 0:
+                                $(".menuaside ul").slideToggle(500);
+                                $(".menuaside").css(mostrar);
+                                bandera=1;
+                            break;
+                            
+                        case 1:
+                                $(".menuaside ul").slideToggle(500);
+                                $(".menuaside").css(ocultar);
+                                bandera=0;
+                            break;
+                    }
+                });
+            });        
+        </script>
+    
+
+        <section id="contenido">
+            <article>
+                <header id="headersection">
+                    <h2>Living</h2>
+                </header>
+    
+                <a name="Sofa"></a>
+                <figure>
+                    <img src="../imagenes/sofa.png" height="600" width = "700" class="imageCursor">
+                </figure>
+                <div id="divpar">
+                    <p>
+                        <b>Sofá de 3 plazas, Flodafors blanco</b><br><b>Precio: 649€</b> <br><b>Detalles del producto:</b><br>Será tu mejor compañía en una noche de cine frente al televisor y el centro de atención de la habitación. Hemos pensado en todo, desde los cómodos cojines del asiento hasta los reposabrazos redondeados y las fundas suaves.
+                    </p>
+                </div>
+                
+                <a name="MesaVidrio"></a>
+                <figure>
+                    <img src="../imagenes/MesaLiving.png" height="600" width = "700" class="imageCursor">
+                </figure>
+                <div id="divpar">
+                    <p>
+                        <b>Mesa de centro, negro-marrón/vidrio</b><br><b>Precio:</b> 40€ <br><b>Detalles del producto:</b><br>Al ser de vidrio templado, el tablero es resistente a las manchas y muy fácil de limpiar.
+                    </p>
+                </div>
+
+                <a name="Modular"></a>
+                <figure>
+                    <img src="../imagenes/Modular.png" height="600" width = "700" class="imageCursor">
+                </figure>
+                <div id="divpar">
+                    <p>
+                        <b>Estantería, blanco</b><br><b>Precio:</b> 25€ <br><b>Detalles del producto:</b><br>En vertical, en horizontal, contra la pared o separando ambientes. La serie KALLAX se adapta a tus gustos, espacio, presupuesto y necesidades.Combínala con cajones, baldas, cajas y accesorios.
+                    </p>
+                </div>
+            </article>
+    
+            <article>
+                
+                <header id="headersection">
+                    <h2>Dormitorio</h2>
+                </header>
+    
+                <a name="Cama"></a>
+                <figure>
+                    <img src="../imagenes/Cama.png" height="600" width = "700" class="imageCursor">
+                </figure>
+                <div id="divpar">
+                    <p>
+                        <b>Estructura de cama con 2 cajones, negro-marrón/Luröy</b><br><b>Precio:</b> 269€ <br><b>Detalles del producto:</b><br>Una cama con un diseño sencillo en chapa de madera maciza. La puedes poner en el centro de la habitación o con elcabecero contra la pared. Si necesitas espacio para guardar cosas, añade unas cajas con ruedas.
+                    </p>
+                </div>
+    
+                <a name="Armario"></a>
+                <figure>
+                    <img src="../imagenes/Armario.png" height="600" width = "700" class="imageCursor">
+                </figure>
+                <div id="divpar">
+                    <p>
+                        <b>Armario esquinero, blanco</b><br><b>Precio:</b> 25€ <br><b>Detalles del producto:</b><br>Un armario esquinero profundo y espacioso con mucho sitio para guardar ropa y accesorios.
+                    </p>
+                </div>
+    
+                <a name="Espejo"></a>
+                <figure>
+                    <img src="../imagenes/Espejo.png" height="600" width = "700" class="imageCursor">
+                </figure>
+                <div id="divpar">
+                    <p>
+                        <b>Espejo, negro</b><br><b>Precio:</b> 564€ <br><b>Detalles del producto:</b><br>Gracias a su diseño atemporal,queda igual de bien en el salón que en el baño.Combina a la perfección con la serie MALM.
+                    </p>
+                </div>
+    
+            </article>
+    
+            <article>
+                <header id="headersection">
+                    <h2>Comedor</h2>
+                    <h1>Mesas</h1>
+                </header>
+                
+                <a name="MesaGris"></a>
+    
+                <figure>
+                    <img src="../imagenes/Mesa gris.png" height="600" width = "700" class="imageCursor">
+                </figure>
+                <div id="divpar">
+                    <p>
+                        <b>Mesa, gris oscuro</b><br><b>Precio: 199€</b> <br><b>Detalles del producto:</b><br>Gracias a su pequeño tamaño, la mesa se puede utilizar en cualquier espacio aunque sea reducido.Una mesa redondasin bordes afilados da un aire relajante a la estancia.
+                    </p>
+                </div>
+
+                <a name="MesaTinte"></a>
+                <figure>
+                    <img src="../imagenes/Mesa tinte claro.png" height="600" width = "700" class="imageCursor">
+                </figure>
+                <div id="divpar">
+                    <p>
+                        <b>Mesa, tinte envejecido claro/tinte blanco</b><br><b>Precio: 99€ </b><br><b>Detalles del producto</b>:<br>Gracias a su pequeño tamaño, la mesa se puede utilizaren cualquier espacio aunque sea reducido.La madera maciza de pino es un material natural que envejece bien y gana con los años.
+                    </p>
+                </div>
+                
+                <h1>Sillas</h1>
+                <a name="SillaIn"></a>
+                <figure>
+                    <img src="../imagenes/Ingolf.png" height="600" width = "700" class="imageCursor">
+                </figure>
+                <div id="divpar">
+                    <p>
+                        <b>Silla, blanco</b><br><b>Precio: 50€ </b><br><b>Detalles del producto:</b><br>Ebsta silla ha sido probada para uso doméstico y cumple los requisitos de durabilidad y seguridad que establecen las normas siguientes: EN 12520 y EN 1022.Para evitar los rayones y proteger las superficies delicadas, utiliza los protectores adhesivos FIXA, que se venden aparte.
+                    </p>
+                </div>
+    
+                <a name="SillaGris"></a>
+                <figure>
+                    <img src="../imagenes/silla blanco.png" height="600" width = "700" class="imageCursor">
+                </figure>
+                <div id="divpar">
+                    <p>
+                        <b>Silla, blanco/Orrsta gris claro </b><br><b>Precio: 45€ </b><br><b>Detalles del producto:</b><br>El asiento tapizado y el cómodo ángulo del respaldo la convierten en la silla ideal para comidas largas.La funda es fácil de quitar y poner y se puede meter en la lavadora.
+                    </p>
+                </div>
+            </article>
+        </section>
+        
+
+        
+
+    <footer id="pie" align="center">
+        <small>
+            <canvas id="canvas" width="175" height="175" class="imgFooter"> </canvas><br>
+
+            Programación Web I <br>
+            ● Ivan Camara Garcia <br>
+            ● Luis Fernando Calle Ramos<br>
+            ● Alvaro Roel Aquise Canquilla<br>
+            <address>La Paz - Bolivia</address>
+            <i>77213595</i>    
+        </small>
+    </footer>
+    <script src="../JavaScript/paginas.js"></script>
+
+    </body>
+</html>

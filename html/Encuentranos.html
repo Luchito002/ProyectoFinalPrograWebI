@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Encuéntranos</title>
+    <meta name="viewport" content="width=device-width, initial-sclae=1.0">
+    <link rel="stylesheet" type="text/css" href="../CSS/maps.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/paginasCSS.css">
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css"
+      type="text/css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <style>
+        #body{
+            background: linear-gradient(rgba(5,7,12, 0.5), rgba(5,7,12, 0.5)),
+            url(../imagenes/FondoIndex.png) no-repeat center center fixed;
+            background-size: cover;
+            margin: 0px;
+        }
+
+        #map{
+            margin-left: auto;
+            margin-right: auto;
+            height: 900px;
+            width: 1000px;
+        }
+        .marker{
+            background-image: url('../imagenes/ubicacion.png');
+            background-size: cover;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            color: rgb(0, 0, 0);
+            font-size: 20px;
+        }
+
+        .marker1{
+            background-image: url('../imagenes/ubicacion.png');
+            background-size: cover;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            color: rgb(0, 0, 0);
+            font-size: 20px;
+        }
+
+        #obtener{
+            color: white;
+            height: 120px;
+            width: 120px;
+            background-color: rgba(12, 7, 34, 0.466);
+            border-radius: 100px;
+            border-style: none;
+            font-size: 20px;
+            cursor: help;	
+            margin-left: 45%;
+            margin-right: auto;
+        }
+        #informacion{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+        }
+        #informacionP{
+            background-color: rgba(15, 12, 34, 0.815);
+            border-radius: 25px;
+            font-size: 25px;
+            width: 550px;
+            padding: 25px;
+        }
+
+
+    </style>
+</head>
+
+<body id="body">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+    <script>
+        var app = angular.module('ContenedorInformacion', ['ngAnimate'])
+    </script>
+
+<button id="BTNInicio"><a href="../Index.html">Inicio</a></button>
+
+    <header id="cabeceraweb" align="center">
+        <h1>Encuéntranos</h1>
+    </header>
+
+    <nav id="menu">
+        <ol>
+            <li><a href="Formulario.html">Registrate</a></li>
+            <li><a href="Productos.html">Productos</a></li>
+            <li><a href="Galeria.html">Galeria de fotos</a></li>
+            <li><a href="Encuentranos.html">Encuentranos</a></li>
+            <li><a href="Pagos1.html">Método de Pagos</a></li>
+            <li><a href="http://localhost:3000/">Comentarios</a></li>
+        </ol>  
+    </nav>
+    <br><br>
+
+    <!--Aplicacion de Angular-->
+    <div ng-app="ContenedorInformacion" id="informacion">
+        <h1>Más información<input type="checkbox" ng-model="check"></h1>
+
+        <div ng-show="check" id="informacionP">
+            <p>
+                Nos encontramos en la Av. Argentina Nº 2083, La Paz <br>
+                De lunes a viernes abrimos de a las 08:00 y cerramos a las 21:00<br>
+                Los sabados y domingos abrimos a las 09:00 y cerramos a las 19:00<br>
+                Llamanos al 77213595
+            </p>
+        </div>
+    </div>
+
+    
+
+    <br><br>
+
+    <div id="map"></div>
+    <div id="geo"></div>
+
+    <br><br>
+
+
+
+    <button type="button" id="obtener">Obtener mi ubicación</button>
+
+
+
+    <script>
+        mapboxgl.accessToken =
+    "pk.eyJ1IjoibGNodCIsImEiOiJja3Z3ZDZ2ZG0wNzdiMm9wYTc2Zzg2ZjE2In0.vAm-iQ834gNZ29jGvky-ow";  
+    
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [-68.11988, -16.50301],
+        zoom: 15
+    })
+
+    var nav = new mapboxgl.NavigationControl()
+    map.addControl(nav)
+  
+    var directions = new MapboxDirections({
+      accessToken: mapboxgl.accessToken
+    })
+
+    map.addControl(directions, "top-left")
+
+    var element = document.createElement('div')
+    element.className = 'marker'
+    var marker = new mapboxgl.Marker(element)
+    .setLngLat({
+        lng:-68.12015619586089,
+        lat:-16.503410461939485
+    }).addTo(map)
+    </script>
+
+    <!--Geolocalización-->
+    <script>
+    $(function(){
+        $("#obtener").click(function(){
+            var output = document.getElementById('geo');
+            function localizacion(posicion){       
+
+                var element1 = document.createElement('div')
+                element1.className = 'marker1'
+                element1.innerHTML = "<br><br><br><b>Tu Ubicación</b>"
+                var marker1 = new mapboxgl.Marker(element1)
+                .setLngLat({
+                    lat: posicion.coords.latitude,
+                    lng: posicion.coords.longitude
+                }).addTo(map)
+            }
+            navigator.geolocation.getCurrentPosition(localizacion);
+        });
+    })
+
+    </script>
+ 
+    <!--Boton de "Obtener mi uvicación"-->
+    <script>
+
+        var ButtonObt = document.getElementById("obtener");
+
+        ButtonObt.addEventListener('mouseenter', ()=>{
+            ButtonObt.style.background = "rgb(3, 146, 146)";
+        })
+
+        ButtonObt.addEventListener('mouseleave', ()=>{
+            ButtonObt.style.background = "rgba(12, 7, 34, 0.466)";
+        })
+
+
+    </script>
+
+
+    <footer id="pie" align="center">
+        <small>
+            <canvas id="canvas" width="175" height="175" class="imgFooter"> </canvas><br>
+
+            Programación Web I <br>
+            ● Ivan Camara Garcia <br>
+            ● Luis Fernando Calle Ramos<br>
+            ● Alvaro Roel Aquise Canquilla<br>
+            <address>La Paz - Bolivia</address>
+            <i>77213595</i>    
+        </small>
+    </footer>
+    <script src="../JavaScript/paginas.js"></script>
+</body>
+</html>

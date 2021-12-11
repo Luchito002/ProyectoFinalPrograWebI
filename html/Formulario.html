@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>Tienda de Mobiliarios</title>
+        <link rel="stylesheet" type="text/css" href="../CSS/paginasCSS.css">
+
+
+        <style>
+            #body{
+                margin: 0;
+                background: linear-gradient(rgba(5,7,12, 0.5), rgba(5,7,12, 0.5)),
+                url(../imagenes/FondoIndex.png) no-repeat center center fixed;
+                background-size: cover;
+                color: white;
+                text-orientation: center;
+            }
+             
+            #registros{
+        background:royalblue;
+        background-size: cover;
+        width: 1000px;
+        border-radius: 20px;
+        color: white;
+        padding-top: 40px;
+       }
+               
+            #zonaformulario{
+           width: 300px;
+            padding: 10px;
+            border: 5px solid orange;
+            position: absolute;
+            top: 1150px;
+            left: 10px;
+        }
+              #zonadatos{
+           align-content: center;
+            width: 200px;
+         
+            margin-left: 20px;
+            padding: 20px;
+            border: 5px dashed orange;
+        }
+        #estilo{
+        	color:white;
+        	font: bold 20px consolas ;
+        }
+  #datitos{
+            margin-top: 35px;
+
+            width: 320px;
+            height: 110px;
+            padding: 0px;
+            color: white;   
+              position: absolute;
+            top: 1250px;
+            left: 10px;
+        }
+
+        #divContenedor {
+            position:relative;
+            height:1224px;
+            width:740px;
+            margin:0 auto;
+            background: linear-gradient( 75deg, #4d4691, #406da0);
+            border: solid 10px #443775;
+            box-shadow: 8px 8px 15px 8px; 
+            }
+            
+            .left{
+                float: left;
+                background:blue
+            }
+            .right{
+                float: right;
+                background:red
+                }
+            .center{
+                background:green;
+                display:inline-block
+            }
+                
+            #divTitulo {
+            height:56px;
+            width:745px;
+            color:white;
+            text-align:center;
+            font-weight:bold;
+            background-color: rgba(18, 57, 163, 0.336);
+            border-radius:5px ;
+        }
+            #div1 {
+                position:relative; /*Indica la posición del elemento*/
+                height:365px;
+                width:820px;
+                background-color:#25977d;
+            }
+            #lbl1, #lbl2, #lbl3, #lbl4, #lbl5,#lbl6,#lbl7{
+                width:70px;
+                background:rgba(18, 57, 163, 0.336);
+                border-radius: .3rem
+            }
+            #txt1, #txt2,#txt3, #txt4,#txt5,#txt6{
+                width:200px;
+                border:1px solid black;
+                cursor: auto;
+                background: lightblue;
+            }
+            
+            
+
+            #lbl7 {
+                width:110px;
+                top:90px;
+                left:120px;
+                cursor:pointer;
+            } 
+
+            #formulario{
+                text-shadow: rgb(0, 0, 0) 5px 7px 5px;
+                cursor: crosshair;
+                padding: 50px;
+                background-color: rgba(90, 7, 4, 0.644);
+                background: linear-gradient(90deg, rgba(58, 5, 3, 0.644), rgba(255, 3, 3, 0.884));
+                
+            }
+
+            .ImagenAccion input {
+                display: none;
+            }
+            .ImagenResultado {
+                cursor: wait;
+                position: relative;
+                margin-left: 320%;
+            	margin-top: 20%;
+
+                width: 100%;
+                height: 100%;
+                background-color: whitesmoke;
+                border: 1px dashed #050505;
+            }
+            .ImagenResultado img {
+                width: 100%;
+                height: 100%;
+                z-index: 50;
+            }
+
+            .contenedor {
+                width: 200px;
+                height: 200px;
+                position: absolute;
+            }
+        </style>
+        <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="jquery.gomap-1.3.2.min.js"></script>
+    </head>
+
+    <body id="body">
+
+        <button id="BTNInicio"><a href="../Index.html">Inicio</a></button>
+
+
+        <header id="cabeceraweb" align="center">
+            <h1>Registrate</h1>
+        </header>
+
+        <nav id="menu">
+            <ol>
+                <li><a href="Formulario.html">Registrate</a></li>
+                <li><a href="Productos.html">Productos</a></li>
+                <li><a href="Galeria.html">Galeria de fotos</a></li>
+                <li><a href="Encuentranos.html">Encuentranos</a></li>
+                <li><a href="Pagos1.html">Método de Pagos</a></li>
+                <li><a href="http://localhost:3000/">Comentarios</a></li>
+            </ol>  
+        </nav>
+
+
+        <h2>     
+            <div id="divContenedor">
+
+                <form>
+                    <div class="contenedor">
+                        <div class="ImagenAccion">
+                            <input type="file" name="image" id="image" />
+                        </div>
+                        <div class="ImagenResultado" id="ImagenResultante">
+                            <img id="ImgResultante"/>
+                        </div>
+                    </div>
+                </form>
+
+
+                <h1><div id="divTitulo">Formulario</div></h1> <br> 
+                
+                <form  method="get" autocomplete="off">
+        
+                    <center><section id="formulariodepre">
+                    <div id="form1"> 
+            
+        
+                        <BR>
+        
+                        Nombre: <input type="text" id="nombre"  required="true" pattern="[A-Za-z]+"><br>
+                     <br>
+                     Apellido Paterno: <input type="text" id="apellido" required="true" pattern="[A-Za-z]+"><br>
+                     <br>
+                     Apellido Materno: <input type="text" id="apellido2" required="true" pattern="[A-Za-z]+"><br>
+                     <br>
+                    Edad:<input type="number" id="Edad1" min="18" max="70"><br><br>
+                
+                      Numero de Carnet : <input type="number" id="cedula"  min="1111111" max="9999999"required="true"/><br>
+                    <br>
+                      Fecha de Nacimiento:<input type="date" id="fecha"><br><br>
+                      Direccion del Domicilio: <input type="text" id="direccion" placeholder="Zona/Calle/Numero" /><BR><BR>
+                   <h3>Genero</h3>
+                   <input type="radio" id="btn" name="btn" value="Masculino" checked> Masculino
+                   <br>
+                    <input type="radio" id="btn" name="btn" value="Femenino"> Femenino
+                    <br>
+                    <input type="radio" id="btn" name="btn" value="Otro"> Otro     
+                  
+                  
+          
+                      <br><br>
+                      Sucursales:
+                      <br><select id="lbl7" name="lbl7">
+                          <option selected value="0">Selecciona</option>
+                          <optgroup label="La Paz">
+                              <option value="Calle 20 De Calacoto">Calle 20 De Calacoto</option>
+                              <option value="Copacabana">Copacabana</option>
+                              <option value="Avenida Brasil">Avenida Brasil</option>
+                              <option value="Av Montenegro">Av Montenegro</option>
+                              <option value="6 De Agosto">6 De Agosto</option>
+                              <option value="Calle8">Calle8</option>
+                              <option value="Buenos Aires">Buenos Aires</option>
+                            
+                          </optgroup>
+                      </select>
+          
+                      <br><br>	
+                    
+                      Telefono : <input type="number" id="telefono"   minlength="7" maxlength="7" min="2000000" max="2999999"/><br><br>
+                      Numero de Celular: <input type="number" id="celular"  minlength="8" maxlength="8" min="6000000" max="7999999"><BR><BR>
+                          Correo Electronico:   <input type="email" id="email" placeholder="email" />   <br><br>
+                    <h3>Password</h3>
+                    <label id="lbl5" name="lbl5" form="password">Contraseña:</label>
+                    <input id="password" name="txt5" type="password" name="psw" placeholder="ingrese una contraseña" required> 
+    
+                    
+                
+                   
+                <br>
+                 
+            </section>
+            <input type="reset" />
+            <input type="button" value="Registrar"  onClick="guardarDatos()" onclick="alert('Resgistro Exitoso')"/>     
+            </form>
+                
+        </div>
+    </h2>    
+    <center >
+        <section id="datitos"></section>
+    </center>
+    
+
+<br> <br> <br> <br>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script>
+    $(document).ready(() => {
+        $('#form1').dblclick(function(){
+            $(this).css('background-color', ' #3f4c6b ');
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(() => {
+        $('#registros').dblclick(function(){
+            $(this).css('background-color', ' #3f4c6b ');
+        });
+    });
+</script>
+<center>
+<section  id="registros">
+       <table id="table">
+      
+             <tr>
+        <td>NOMBRE</td>
+        <td>APELLIDO</td>
+        <td>CELULAR</td>
+        <td>EMAIL</td>
+
+        <td>--</td>
+    </tr>
+    
+   
+</table>
+</section>
+ 
+<script>
+    var ImagenEntrante = document.getElementById('image')			
+    var DropZone = document.getElementById('ImagenResultante')	
+    var Imagen = document.getElementById('ImgResultante')
+
+    DropZone.addEventListener('click', () => ImagenEntrante.click())
+
+    DropZone.addEventListener('dragover', (e) => {
+        e.preventDefault()
+    })
+
+    DropZone.addEventListener('drop', (e) => {	
+        e.preventDefault()							
+        ImagenEntrante.files = e.dataTransfer.files
+        var file = ImagenEntrante.files[0]
+        uploadImage(file)
+    })
+
+    ImagenEntrante.addEventListener('change', (e) => {		
+        var file = e.target.files[0]		
+        uploadImage(file)
+    })
+
+    function uploadImage (file){		
+        var fileReader = new FileReader()		
+        fileReader.readAsDataURL(file)	
+        		
+        fileReader.addEventListener('load', (e) => {
+            Imagen.setAttribute('src', e.target.result)
+        })
+    }
+
+
+</script>
+</center>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script>
+          //array de los datos
+          var allDatos=[];
+    if (localStorage.getItem("frm")!=null) 
+    {
+    
+          //almacenamos en el array alldatos los datos
+          allDatos=JSON.parse(localStorage.getItem("frm")); 
+           //MOSTRAMOS Los datos
+          mostrar();
+    }
+        function guardarDatos()
+        {
+            //validamos
+        validar();
+            //array de los datos
+            datos=[];
+            //agregamos valores a el array
+        datos.push($("#nombre").val());
+        datos.push($("#apellido").val());
+        datos.push($("#celular").val());
+        datos.push($("#email").val());
+        datos.push($("#apellido2").val());
+        datos.push($("#Edad1").val());
+        datos.push($("#direccion").val());
+        datos.push($("#departamento").val());
+        datos.push($("#telefono").val());
+            datos.push($("#output").val());
+            datos.push($("#txtLat").val());
+            datos.push($("#txtLng").val());
+                  //almaceno el array en el array alldatos
+                allDatos.push(datos);
+    
+                 //convertimos alldatos en JSON
+                arjson=JSON.stringify(allDatos);
+    
+                //almacenamos los datos en bd local
+                localStorage.setItem("frm",arjson);
+    
+                  //limpiamos el formulario
+                borrarCampos();
+    
+                 //llamamamos la funcion mostrar "informacion"
+                mostrar();
+    
+        }
+    
+      function mostrar()
+        {
+            //tomamos los valores almacenados en la bd local decodificamos el array JSON
+            campos=JSON.parse(localStorage.getItem("frm"));
+             //borramos todos los elementos con la clase trx
+             $(".trx").remove();
+              
+            for(x=0;x < campos.length;x++)
+            {
+                $("#table").append("<tr class='trx'> <td>"+campos[x][0]+"</td> <td>"+campos[x][1]+"</td>     <td>"+campos[x][2]+"</td> <td>"+campos[x][3]+"</td> <td>"+campos[x][15]+"</td> <td></td>  </tr>")
+            }
+        }
+
+        //VALIDAMOS LOS DATOS Y borramos la informacion
+     function validar()
+        {
+            //todos los campos
+            nombre = $("#nombre").val();
+              
+                email = $("#email").val();
+                  telefono=$("#telefono").val();
+                    apellido = $("#apellido").val();
+                      apellido2 = $("#apellido2").val();
+                        edad=$("#Edad1").val();
+                          
+                        celular=$("#celular").val();
+                        
+                //validamos el nombrz
+                if(nombre.length < 2)
+                {
+                    alert("falta nombre");
+                     return false;
+                }
+                if (!isNaN(nombre)){
+                    alert("no se puede agregar numeros en la parte de nombre")
+                    document.getElementById("nombre").value;
+                    document.getElementById("nombre").focus();
+                    return false;
+                }
+                if(apellido.length<3)
+                {
+                  
+                    alert("falta apellido paterno");
+                     return false;
+    
+                }
+                if (!isNaN(apellido)){
+                    alert("no se puede agregar numeros en la parte de apellido")
+                    document.getElementById("apellido").value;
+                    document.getElementById("apellido").focus();
+                    return false;
+                }
+                 if(apellido2.length<3)
+                {
+                  
+                    alert("falta apellido materno");
+                     return false;
+    
+                }
+                if (!isNaN(apellido2)){
+                    alert("no se puede agregar numeros en la parte de apellido")
+                    document.getElementById("apellido2").value;
+                    document.getElementById("apellido2").focus();
+                    return false;
+                }
+
+                if(Edad1.length<3)
+                {                  
+                    alert("falta edad");
+                    return false;
+    
+                }
+
+                    //validacion de email
+                    if(email.length<7)
+                {
+                  
+                    alert("falta email");
+                    return false;
+    
+                }
+                    //validacion de telefono
+                    if(telefono.length<7)
+                {
+                  
+                    alert("falta telefono");
+                    return false;
+                }
+                     
+        }
+        
+    
+         function borrarCampos()
+        {
+            //igualamaos los campos a vacio
+        $("#nombre").val("");
+        $("#apellido").val("");
+        $("#apellido2").val("");
+        $("#Edad1").val("");
+        $("#fecha").val("");
+        $("#direccion").val("");
+        $("#departamento").val("");
+        $("#telefono").val("");
+        $("#celular").val("");
+        $("#email").val("");
+        $("#registromed").val("");
+        $("#horario").val("");
+        $("#horario2").val("");
+        $("#output").val("");
+        $("#txtLat").val("");
+        $("#txtLng").val("");
+        }
+
+    </script>
+
+
+        <footer id="pie" align="center">
+            <small>
+                <canvas id="canvas" width="175" height="175" class="imgFooter"></canvas><br>
+
+                Programación Web I <br>
+                ● Ivan Camara Garcia <br>
+                ● Luis Fernando Calle Ramos<br>
+                ● Alvaro Roel Aquise Canquilla<br>
+                <address>La Paz - Bolivia</address>
+                <i>77213595</i>    
+            </small>
+        </footer>
+        <script src="../JavaScript/paginas.js"></script>
+    </body>
+</html>

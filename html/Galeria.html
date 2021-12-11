@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>Galeria</title>
+        <link rel="stylesheet" type="text/css" href="../CSS/paginasCSS.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <style>
+            #body{
+                margin: 0;
+                background: linear-gradient(rgba(5,7,12, 0.5), rgba(5,7,12, 0.5)),
+                url(../imagenes/FondoIndex.png) no-repeat center center fixed;
+                background-size: cover;
+                color: white;
+            }
+            #piezas {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            #piezas :hover{
+                transition: all 1000ms ease-out;
+                transform: scale(1.3);
+                cursor: pointer;
+            }
+            
+            .pieza {
+                width: 300px;
+                height: 300px;
+                background-size: cover;
+                margin: 35px;
+                opacity: 0.5;
+            }
+
+            #contenido{
+                margin-left: 10%;
+                margin-right: 10%;
+                margin-top: 5%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+
+        </style>
+    </head>
+
+    <body id="body">
+
+        <button id="BTNInicio"><a href="../Index.html">Inicio</a></button>
+
+        <header id="cabeceraweb" align="center">
+            <h1>Galeria de Fotos</h1>
+        </header>
+
+        <nav id="menu">
+            <ol>
+                <li><a href="Formulario.html">Registrate</a></li>
+                <li><a href="Productos.html">Productos</a></li>
+                <li><a href="Galeria.html">Galeria de fotos</a></li>
+                <li><a href="Encuentranos.html">Encuentranos</a></li>
+                <li><a href="Pagos1.html">Método de Pagos</a></li>
+                <li><a href="http://localhost:3000/">Comentarios</a></li>
+            </ol>  
+        </nav>
+
+        <section id="contenido">
+            <div id="piezas"></div>
+        </section>
+
+        <script>
+
+            var imagenes = Array(11);
+            imagenes = 
+            ['imagen-0', 'imagen-1', 'imagen-2', 'imagen-3', 'imagen-4', 
+             'imagen-5', 'imagen-6', 'imagen-7', 'imagen-8', 'imagen-9',
+             'imagen-10', 'imagen-11',];
+        
+            while (imagenes.length > 0) {
+                var aleatorio = Math.floor(Math.random() * imagenes.length);
+                var div = document.createElement('div');
+                div.className = 'pieza';
+                div.id = imagenes[aleatorio];
+                div.style.backgroundImage = `url("Galeria/${imagenes[aleatorio]}.png")`;
+                piezas.appendChild(div);
+                imagenes.splice(aleatorio, 1);
+            }
+            
+        </script>
+
+        <script>
+            $(document).ready(function() {
+                $(".pieza").mouseover(function(){
+                    $(this).animate({
+                        opacity:1
+                    },250);
+                })
+
+                $(".pieza").mouseout(function(){
+                    $(this).animate({
+                        opacity:0.5
+                    },250);
+                })
+            });
+        </script>
+        
+        <footer id="pie" align="center">
+            <small>
+                <canvas id="canvas" width="175" height="175" class="imgFooter"> </canvas><br>
+    
+                Programación Web I <br>
+                ● Ivan Camara Garcia <br>
+                ● Luis Fernando Calle Ramos<br>
+                ● Alvaro Roel Aquise Canquilla<br>
+                <address>La Paz - Bolivia</address>
+                <i>77213595</i>    
+            </small>
+        </footer>
+        <script src="../JavaScript/paginas.js"></script>
+    </body>
+</html>

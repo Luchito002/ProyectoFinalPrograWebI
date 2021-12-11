@@ -1,0 +1,138 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Metodos de Pago</title>
+        <link rel="stylesheet" type="text/css" href="../CSS/paginasCSS.css">
+        <style type="text/css">
+            body{
+                text-orientation: center;
+                margin: 0;
+                background: linear-gradient(rgba(5,7,12, 0.5), rgba(5,7,12, 0.5)),
+                url(../imagenes/FondoIndex.png) no-repeat center center fixed;
+                background-size: cover; 
+            }
+
+            #div1 {
+                float: right;
+                top:200px;
+                right:800px;
+                width:50px;
+                border:black;
+            }
+            #div1:hover{
+            transform: scale(1.5);
+            }
+            #div2 {
+                background: -webkit-linear-gradient(top, rgba(18, 57, 163, 0.336) , white );
+                position:absolute;
+                left: 470px;
+                top: 260px;
+                height: 300px;
+                width: 300px;
+                border-radius: 30px;
+                border: 3px solid rgba(15, 12, 34, 0.815);
+                padding-top: 10px;
+                padding-left: 10px;
+                text-align: center;
+                text-shadow:  rgba(18, 57, 163, 0.336) 5px 5px 7px;
+                transform: scale(-1);
+                transition:-webkit-transform 2s ease 2s;
+            }
+            #div2:hover{
+			transform: rotate(360deg);
+		    }
+            #div2 a:link{
+                color: purple;
+            }
+
+            #div2 a:visited {
+                color:red;
+            }
+            #cabecerawebR{
+                background-color: rgba(18, 57, 163, 0.336);
+                color: rgba(15, 12, 34, 0.815);
+                border: 2px solid rgb(0, 0, 0);
+                padding-left:50px ;
+                border-radius:20px;
+                margin-left:350px;
+                margin-right:600px;
+                text-align: center;
+            }
+            #contenido{
+                background-color: #ffffff;
+                margin-left:10px;
+                margin-right: 400px;
+                margin-top: 25px;
+                padding-left: 50px;  
+                padding-right: 50px;  
+                padding-top: 10px;
+                border: 2px solid rgb(0, 0, 0);
+                border-radius: 20px;
+                cursor: move;
+                box-shadow: rgba(15, 12, 34, 0.815) 40px 40px 40px;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <button id="BTNInicio"><a href="../Index.html">Inicio</a></button>
+
+        <header id="cabeceraweb" align="center">
+            <h1>Métodos de pago</h1>
+        </header>
+    
+        <nav id="menu">
+            <ol>
+                <li><a href="Formulario.html">Registrate</a></li>
+                <li><a href="Productos.html">Productos</a></li>
+                <li><a href="Galeria.html">Galeria de fotos</a></li>
+                <li><a href="Encuentranos.html">Encuentranos</a></li>
+                <li><a href="Pagos1.html">Método de Pagos</a></li>
+                <li><a href="http://localhost:3000/">Comentarios</a></li>
+            </ol>  
+        </nav>
+        <div>
+            <div id="div2">
+                <br>
+                <h2><p>No tienes cuenta..?????<br><br>Que esperas..???<br><br><a href="../html/Formulario.html">REGISTRATE YA !!!</a></p></h2>
+            </div>
+            <section id="contenido">
+                <div class="formularioImagen">
+                    <figure>
+                        <div id="div1">
+                            <img src="../imagenes/furniturelogo.jpg" height="300" width="300" border="3px">
+                        </div>
+                    </figure>
+                </div>
+                <form method="get" autocomplete="on">
+                    <h2><p style="cursor:help"><u>Ingresa tu cuenta</u></p></h2>
+                    <br>
+                    <h3><label form="cuenta" accesskey="U"><u>U</u>suario</label><br><br>
+                    <input type="email" name="email" required accesskey="U">
+                    <br><br>
+                    <label form="password" accesskey="C"><u>C</u>ontraseña</label><br><br>
+                    <input type="password" accesskey="C" name="contraseña" value=""  placeholder=" ********">
+                    <br><br></h3>
+                <button>
+                    <a href="pagos2.html">Continuar</a>
+                </button>
+                <br><br>
+            </form>
+            </section>
+        </div>
+
+        <footer id="pie" align="center">
+            <small>
+                <canvas id="canvas" width="175" height="175" class="imgFooter"> </canvas><br>
+    
+                Programación Web I <br>
+                ● Ivan Camara Garcia <br>
+                ● Luis Fernando Calle Ramos<br>
+                ● Alvaro Roel Aquise Canquilla<br>
+                <address>La Paz - Bolivia</address>
+                <i>77213595</i>    
+            </small>
+        </footer>
+        <script src="../JavaScript/paginas.js"></script>
+</html>
